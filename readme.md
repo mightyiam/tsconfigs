@@ -19,7 +19,7 @@ Strictly following semantic versioning. So no worries.
 
 In your `tsconfig.json`:
 
-```json
+```js
 {
   // For the `universal` flavor
   "extends": "./node_modules/tsconfigs/universal",
