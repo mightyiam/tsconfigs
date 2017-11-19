@@ -6,7 +6,8 @@
     "lint": "eslint --ext .ts src/**/*.ts",
     "compile": "tsc",
     "unit": "ava",
-    "test": "run-s lint compile unit"
+    "test": "run-s lint compile unit",
+    "prepublish": "npm test"
   },
   "repository": {
     "type": "git",
