@@ -1,0 +1,47 @@
+{
+  "name": "tsconfigs",
+  "version": "0.0.0",
+  "description": "Reusable TypeScript configuration files to extend from.",
+  "scripts": {
+    "lint": "eslint --ext .ts src/**/*.ts",
+    "compile": "tsc",
+    "unit": "ava",
+    "test": "run-s lint compile unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mightyiam/tsconfigs.git"
+  },
+  "keywords": [
+    "tsconfig",
+    "common",
+    "extend",
+    "extends"
+  ],
+  "author": "Shahar Or <mightyiampresence@gmail.com> (https://mightyi.am/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mightyiam/tsconfigs/issues"
+  },
+  "homepage": "https://github.com/mightyiam/tsconfigs#readme",
+  "devDependencies": {
+    "@types/node": "^8.0.53",
+    "ava": "^0.23.0",
+    "eslint": "^4.11.0",
+    "eslint-config-standard-with-typescript": "^1.0.6",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "npm-run-all": "^4.1.2",
+    "tslib": "^1.8.0",
+    "typescript": "2.6.1",
+    "typescript-eslint-parser": "^9.0.0"
+  },
+  "files": [
+    "browser.json",
+    "common.json",
+    "node.json",
+    "universal.json"
+  ]
+}
