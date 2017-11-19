@@ -18,6 +18,6 @@ test(macro, 'common', {
     inlineSources: true
   },
   include: [
-    '**/*'
+    '../../src'
   ]
 })

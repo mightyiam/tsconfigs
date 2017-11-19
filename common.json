@@ -30,5 +30,8 @@
     // Under the impression that source maps in separate files don’t work when debugging Node.js.
     "inlineSourceMap": true,
     "inlineSources": true
-  }
+  },
+  "include": [
+    "../../src"
+  ]
 }

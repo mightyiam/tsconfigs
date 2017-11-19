@@ -22,6 +22,6 @@ test(macro, 'browser', {
     types: []
   },
   include: [
-    '**/*'
+    '../../src'
   ]
 })

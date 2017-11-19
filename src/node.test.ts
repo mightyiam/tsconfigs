@@ -22,6 +22,6 @@ test(macro, 'node', {
     types: ['node']
   },
   include: [
-    '**/*'
+    '../../src'
   ]
 })
