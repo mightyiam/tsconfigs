@@ -9,8 +9,8 @@ const rawToCompilerOptions = (raw: any): ts.CompilerOptions => {
   const options = Object.assign({}, raw)
   options.target = ts.ScriptTarget[options.target]
   options.module = ts.ModuleKind[options.module]
-  options.outDir = resolve(__dirname, '..', '..', '..', options.outDir)
-  options.rootDir = resolve(__dirname, '..', '..', '..', options.rootDir)
+  options.outDir = resolve(__dirname, '..', options.outDir)
+  options.rootDir = resolve(__dirname, '..', options.rootDir)
   options.configFilePath = undefined
   if (options.lib) {
     options.lib = options.lib.map((lib: string) => `lib.${lib}.d.ts`)
