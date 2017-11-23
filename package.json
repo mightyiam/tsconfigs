@@ -29,7 +29,7 @@
     "@types/node": "^8.0.53",
     "ava": "^0.23.0",
     "eslint": "^4.11.0",
-    "eslint-config-standard-with-typescript": "^1.0.6",
+    "eslint-config-standard-with-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
