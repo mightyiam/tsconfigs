@@ -28,7 +28,7 @@
   "devDependencies": {
     "@types/node": "^9.3.0",
     "ava": "^0.25.0",
-    "eslint": "^4.11.0",
+    "eslint": "^4.18.1",
     "eslint-config-standard-with-typescript": "^3.0.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-node": "^6.0.1",
@@ -38,7 +38,7 @@
     "npm-run-all": "^4.1.2",
     "tslib": "^1.8.0",
     "typescript": "2.6.2",
-    "typescript-eslint-parser": "^13.0.0"
+    "typescript-eslint-parser": "^14.0.0"
   },
   "files": [
     "browser.json",

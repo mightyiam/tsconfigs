@@ -13,7 +13,7 @@ const rawToCompilerOptions = (raw: any): ts.CompilerOptions => {
   options.rootDir = resolve(__dirname, '..', options.rootDir)
   options.configFilePath = undefined
   if (options.lib) {
-    options.lib = options.lib.map((lib: string) => `lib.${lib}.d.ts`)
+    options.lib = options.lib.map((lib: string): string => `lib.${lib}.d.ts`)
   }
   return options as ts.CompilerOptions
 }
@@ -22,13 +22,13 @@ export default (
   t: AssertContext,
   configName: ConfigName,
   { compilerOptions: rawExpectedOptions, include: expectedInclude }: any
-) => {
+): void => {
   const expectedOptions = rawToCompilerOptions(rawExpectedOptions)
 
   const path = resolve(__dirname, '..', `${configName}.json`)
   const { config } = ts.readConfigFile(
     path,
-    (path: string) => readFileSync(path, { encoding: 'utf-8' })
+    (path: string): string => readFileSync(path, { encoding: 'utf-8' })
   )
   const actual = ts.parseJsonConfigFileContent(config, ts.sys, dirname(path))
 
