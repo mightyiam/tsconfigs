@@ -4,6 +4,8 @@
   "compilerOptions": {
     "lib": ["es2018"],
 
-    "types": ["node"]
+    "types": ["node"],
+
+    "resolveJsonModule": true
   }
 }

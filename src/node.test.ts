@@ -19,6 +19,7 @@ test(macro, 'node', {
 
     // specific
     lib: ['es2018'],
+    resolveJsonModule: true,
     types: ['node']
   },
   include: [
