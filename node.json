@@ -4,6 +4,9 @@
   "compilerOptions": {
     "lib": ["es2017"],
 
-    "types": ["node"]
+    "types": ["node"],
+
+    // https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-9.html#new---resolvejsonmodule
+    "resolveJsonModule": true
   }
 }
