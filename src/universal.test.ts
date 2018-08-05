@@ -18,7 +18,7 @@ test(macro, 'universal', {
     inlineSources: true,
 
     // specific
-    lib: ['es2017'],
+    lib: ['es2018'],
     types: []
   },
   include: [

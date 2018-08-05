@@ -18,7 +18,7 @@ test(macro, 'browser', {
     inlineSources: true,
 
     // specific
-    lib: ['es2017', 'dom'],
+    lib: ['es2018', 'dom'],
     types: []
   },
   include: [
