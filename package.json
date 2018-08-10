@@ -1,6 +1,6 @@
 {
   "name": "tsconfigs",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Reusable TypeScript configuration files to extend from.",
   "scripts": {
     "lint": "eslint --ext .ts src/**/*.ts",
