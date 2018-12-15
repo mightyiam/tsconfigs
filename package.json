@@ -27,7 +27,7 @@
   "homepage": "https://github.com/mightyiam/tsconfigs#readme",
   "devDependencies": {
     "@types/node": "^10.11.7",
-    "ava": "^0.25.0",
+    "ava": "^1.0.1",
     "eslint": "^5.7.0",
     "eslint-config-standard-with-typescript": "^6.0.0",
     "eslint-plugin-import": "^2.14.0",
