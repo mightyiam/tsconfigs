@@ -1,9 +1,9 @@
-import { AssertContext } from 'ava'
+import { Assertions, Macro } from 'ava'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import * as ts from 'typescript'
 
-type ConfigName = 'common' | 'browser' | 'node'
+type ConfigName = 'common' | 'browser' | 'node' | 'universal'
 
 const rawToCompilerOptions = (raw: any): ts.CompilerOptions => {
   const options = Object.assign({}, raw)
@@ -18,8 +18,8 @@ const rawToCompilerOptions = (raw: any): ts.CompilerOptions => {
   return options as ts.CompilerOptions
 }
 
-export default (
-  t: AssertContext,
+const macro: Macro<[ConfigName, any]> = (
+  t: Assertions,
   configName: ConfigName,
   { compilerOptions: rawExpectedOptions, include: expectedInclude }: any
 ): void => {
@@ -39,3 +39,7 @@ export default (
     'include'
   )
 }
+
+macro.title = (_, name: ConfigName) => name
+
+export default macro
