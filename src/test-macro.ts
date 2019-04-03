@@ -40,6 +40,6 @@ const macro: Macro<[ConfigName, any]> = (
   )
 }
 
-macro.title = (_, name: ConfigName) => name
+macro.title = (_, name: ConfigName): ConfigName => name
 
 export default macro
