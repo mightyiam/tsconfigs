@@ -8,10 +8,6 @@ test(macro, 'browser', {
     declaration: true,
     importHelpers: true,
     strict: true,
-    noUnusedLocals: true,
-    noUnusedParameters: true,
-    noImplicitReturns: true,
-    noFallthroughCasesInSwitch: true,
     inlineSourceMap: true,
     inlineSources: true,
 

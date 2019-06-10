@@ -16,12 +16,6 @@
     // Because we are strict, like that
     "strict": true,
 
-    // Boy, are we strict...
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-
     // Under the impression that source maps in separate files don’t work when debugging Node.js.
     "inlineSourceMap": true,
     "inlineSources": true
