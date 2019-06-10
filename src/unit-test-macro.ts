@@ -9,8 +9,6 @@ const rawToCompilerOptions = (raw: any): ts.CompilerOptions => {
   const options = Object.assign({}, raw)
   options.target = ts.ScriptTarget[options.target]
   options.module = ts.ModuleKind[options.module]
-  options.outDir = resolve(__dirname, '..', options.outDir)
-  options.rootDir = resolve(__dirname, '..', options.rootDir)
   options.configFilePath = undefined
   if (options.lib) {
     options.lib = options.lib.map((lib: string): string => `lib.${lib}.d.ts`)
@@ -21,7 +19,7 @@ const rawToCompilerOptions = (raw: any): ts.CompilerOptions => {
 const macro: Macro<[ConfigName, any]> = (
   t: Assertions,
   configName: ConfigName,
-  { compilerOptions: rawExpectedOptions, include: expectedInclude }: any
+  { compilerOptions: rawExpectedOptions }: any
 ): void => {
   const expectedOptions = rawToCompilerOptions(rawExpectedOptions)
 
@@ -32,12 +30,7 @@ const macro: Macro<[ConfigName, any]> = (
   )
   const actual = ts.parseJsonConfigFileContent(config, ts.sys, dirname(path))
 
-  t.deepEqual(actual.options, expectedOptions, 'compilerOptions')
-  t.deepEqual(
-    (actual as any).configFileSpecs.includeSpecs,
-    expectedInclude,
-    'include'
-  )
+  t.deepEqual(actual.options, expectedOptions)
 }
 
 macro.title = (_, name: ConfigName): ConfigName => name

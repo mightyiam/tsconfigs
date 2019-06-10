@@ -6,8 +6,6 @@ test(macro, 'universal', {
     target: 'ES2015',
     module: 'CommonJS',
     declaration: true,
-    outDir: '../../lib',
-    rootDir: '../../src',
     importHelpers: true,
     strict: true,
     noUnusedLocals: true,
@@ -20,8 +18,5 @@ test(macro, 'universal', {
     // specific
     lib: ['es2018'],
     types: []
-  },
-  include: [
-    '../../src'
-  ]
+  }
 })

@@ -10,11 +10,6 @@
     // Under the estimation that most projects are dependencies, rather than end-products.
     "declaration": true,
 
-    // This is quite the standard, isn’t it?
-    // resolved relative to this file
-    "outDir": "../../lib",
-    "rootDir": "../../src",
-
     // https://blog.mariusschulz.com/2016/12/16/typescript-2-1-external-helpers-library
     "importHelpers": true,
 
@@ -30,8 +25,5 @@
     // Under the impression that source maps in separate files don’t work when debugging Node.js.
     "inlineSourceMap": true,
     "inlineSources": true
-  },
-  "include": [
-    "../../src"
-  ]
+  }
 }
