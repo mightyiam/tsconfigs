@@ -1,5 +1,5 @@
 import test from 'ava'
-import macro from './test-macro'
+import macro from './unit-test-macro'
 
 test(macro, 'common', {
   compilerOptions: {

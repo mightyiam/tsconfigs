@@ -29,7 +29,7 @@
     "@types/node": "^12.0.0",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.5.0",
-    "ava": "^1.4.1",
+    "ava": "^2.0.0",
     "eslint": "^5.16.0",
     "eslint-config-standard-with-typescript": "^7.0.0",
     "eslint-plugin-import": "^2.16.0",
