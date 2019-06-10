@@ -8,3 +8,6 @@ before_install:
 install: npm install
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
+script:
+  - commitlint-travis
+  - npm run test
