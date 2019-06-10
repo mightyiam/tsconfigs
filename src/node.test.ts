@@ -6,14 +6,8 @@ test(macro, 'node', {
     target: 'ES2015',
     module: 'CommonJS',
     declaration: true,
-    outDir: '../../lib',
-    rootDir: '../../src',
     importHelpers: true,
     strict: true,
-    noUnusedLocals: true,
-    noUnusedParameters: true,
-    noImplicitReturns: true,
-    noFallthroughCasesInSwitch: true,
     inlineSourceMap: true,
     inlineSources: true,
 
@@ -21,8 +15,5 @@ test(macro, 'node', {
     lib: ['es2018'],
     resolveJsonModule: true,
     types: ['node']
-  },
-  include: [
-    '../../src'
-  ]
+  }
 })
