@@ -22,7 +22,9 @@ In your `tsconfig.json`:
 ```js
 {
   // For the `universal` flavor
-  "extends": "./node_modules/tsconfigs/universal",
+  "extends": "tsconfigs/universal",
+
+   // If you're using an old version of TypeScript and the previous line does not work, take a look at [TypeScript issue #18865](https://github.com/Microsoft/TypeScript/issues/18865) for a workaround.
 
   "compilerOptions": {
     // Override whatever you like
@@ -30,7 +32,3 @@ In your `tsconfig.json`:
   }
 }
 ```
-
-## Why we cannot extend from `"tsconfigs/[flavor]"`
-
-Because Node.js resolution for `extends` was not implemented. Show your enthusiasm at [TypeScript issue #18865](https://github.com/Microsoft/TypeScript/issues/18865).
