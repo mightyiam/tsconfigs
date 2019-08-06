@@ -179,210 +179,238 @@ See (policy)[#experimental-features] on experimental features.
 
 ### `extendedDiagnostics`
 
-
 - TypeScript default is `false`
 - Our default is `false`
 
 ### `forceConsistentCasingInFileNames`
 
-
 - TypeScript default is `false`
-- Our default is `false`
+- Our default is `true`
+
+While this does not force case sensitivity in file name references, it at least ensures consistent casing.
 
 ### `importHelpers`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See `target`.
 
 ### `incremental`
 
+- TypeScript default is `true` if composite is on, `false` otherwise
+- Our default is `true`
 
-- TypeScript default is `false`
-- Our default is `false`
+Also see `tsBuildInfoFile`.
 
 ### `inlineSourceMap`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See `sourceMaps`.
 
 ### `inlineSources`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See `sourceMaps`.
 
 ### `isolatedModules`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems like using it would cause us to lose cross-module/file type checking. And that would seem to be a big loss for no apparent reason.
 
 ### `jsx`
 
+- TypeScript default is `"preserve"`
+- Our default is `"preserve"`
 
-- TypeScript default is `false`
-- Our default is `false`
+Out of this package's scope.
 
 ### `jsxFactory`
 
+- TypeScript default is `"React.createElement"`
+- Our default is `"React.createElement"`
 
-- TypeScript default is `false`
-- Our default is `false`
+This is only relevant when `"jsx": "react"`. And in most of those cases, `"React.createElement"` would seem to be the desired value.
 
 ### `keyofStringsOnly`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+This seems to disable a generally desirable type checking feature.
 
 ### `listEmittedFiles`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems like this would be used mostly for debugging.
 
 ### `listFiles`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems like this would be used mostly for debugging.
 
 ### `locale`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Outside this package's scope.
 
 ### `mapRoot`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
 
 ### `maxNodeModuleJsDepth`
 
+- TypeScript default is `0`
+- Our default is `0`
 
-- TypeScript default is `false`
-- Our default is `false`
+This is only relevant when `"checkJs": true`. While this could be useful for obtaining types for installed dependencies, many popular open source libraries have `.d.ts` (declaration files) available. So this doesn't seem to provide much value. In addition, if `"checkJs": true`, files in `node_modules` might trigger type errors.
 
 ### `moduleResolution`
 
-
-- TypeScript default is `false`
-- Our default is `false`
+- TypeScript default is `"Classic"` if `module` is `"AMD"` or `"System"` or `"ES6"` otherwise `"Node"`
+- Our default is `"Node"`
 
 ### `newLine`
 
+- TypeScript default is platform specific.
+- Our default is `"lf"`
 
-- TypeScript default is `false`
-- Our default is `false`
+TODO: Write something.
 
 ### `noEmit`
-
 
 - TypeScript default is `false`
 - Our default is `false`
 
 ### `noEmitHelpers`
 
-
 - TypeScript default is `false`
 - Our default is `false`
 
 ### `noEmitOnError`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Emitting on errors seems useful during development, as long as the exit code is non-zero.
 
 ### `noErrorTruncation`
 
-
 - TypeScript default is `false`
-- Our default is `false`
+- Our default is `true`
+
+This seems helpful. See attached screenshots (in my Drive).
+
+TODO: Attach screenshots
 
 ### `noFallthroughCasesInSwitch`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+It seems that this is more of a linting issue than a type checking issue. How about using this ESLint rule? https://eslint.org/docs/rules/no-fallthrough
 
 ### `noImplicitAny`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See `strict`.
 
 ### `noImplicitReturns`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+It seems that if the developer cares about the type checking of the return type of a function, then she would be better off specifying it than using this.
 
 ### `noImplicitThis`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See `strict`.
 
 ### `noImplicitUseStrict`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Strict mode is widely considered desirable.
 
 ### `noLib`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems like a rarely used flag.
 
 ### `noResolve`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems outside the scope of this project.
 
 ### `noStrictGenericChecks`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+This project will not relax type checking that is enabled by default.
 
 ### `noUnusedLocals`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems more like the job of a linter. How about this ESLint rule? https://eslint.org/docs/rules/no-unused-vars
 
 ### `noUnusedParameters`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems more like the job of a linter. How about this ESLint rule?
+https://eslint.org/docs/rules/no-unused-vars
 
 ### `outDir`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
 
 ### `outFile`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
 
 ### `paths`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Seems outside the scope of this project.
 
 ### `preserveConstEnums`
-
 
 - TypeScript default is `false`
 - Our default is `false`
