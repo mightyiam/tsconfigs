@@ -28,21 +28,45 @@ In your `tsconfig.json`:
 
 ## General principles
 
+### Terms
+
+- *Project kind / kind of project*: One of the set of base configurations that this project exports.
+- *Default value*: TypeScript's default value of an option.
+- *Our value*: tsconfig's value of an option in a particular *kind of project*.
+
+### When *our value* is the same as the *default value*
+
+Below, all TypeScript configuration options are listed, and, for each of them, the *default value*, *our value* and the reasoning behind it.
+
+When *our value* is the same as the *default value*, then this project **does not speficy it** in its exported base configurations.
+
 ### Experimental features
 
-Write something here on the policy.
+Experimental features are outside of the scope of this project. So no experimental feature option is turned on.
 
 ### Project kind overview
 
-#### Browser end-project
+The available *project kind*s are a matrix of two vectors:
+1. Whether the project is importable or an end-project.
+1. The runtime environment of the project; one of browser, Node.js and agnostic.
 
-#### Node.js end-project
+This results on the following *kinds of projects*:
 
-#### Agnostic importable project
+- Browser end-project
+- Node.js end-project
+- Agnostic importable project
+- Browser importable project
+- Node.js importable project
+- ~~Agnostic end-project~~ because that doesn't make sense.
 
-#### Browser importable project
+### Strictness
 
-#### Node.js importable project
+### Paths
+
+## How to use
+
+1. Pick a *project kind*.
+How to extend
 
 ## Options common to all project kinds
 
