@@ -4,64 +4,63 @@
 [![Build Status](https://travis-ci.org/mightyiam/tsconfigs.svg?branch=master)](https://travis-ci.org/mightyiam/tsconfigs)
 [![Badge: npm version badge for package `tsconfigs`](https://img.shields.io/npm/v/tsconfigs.svg)](https://www.npmjs.com/package/tsconfigs)
 
-> Reusable TypeScript configuration files to extend from.
+## Overview
 
-Strictly following semantic versioning. So no worries.
+This is a set of reusable TypeScript configuration files to extend from.
 
-## Usage
+## Project kind overview
+
+The available *project kind*s are a matrix of two criteria:
+
+1. Whether the project is `importable` or an `end-project`.
+1. The runtime environment of the project; `browser`, `nodejs` or `agnostic`.
+
+This results in the following kinds of projects:
+
+- `browser-importable-project`
+- `nodejs-importable-project`
+- `agnostic-importable-project`
+- `browser-end-project`
+- `nodejs-end-project`
+- ~~`agnostic-end-project`~~ because an end-project needs a runtime, doesn't it?
+
+## Example
 
 In your `tsconfig.json`:
 
-```js
+```json
 {
-  // For the `universal` flavor
-  "extends": "tsconfigs/universal",
-
-   // If you're using an old version of TypeScript and the previous line does not work, take a look at [TypeScript issue #18865](https://github.com/Microsoft/TypeScript/issues/18865) for a workaround.
-
+  "extends": "tsconfigs/browser-end-project",
   "compilerOptions": {
     // Override whatever you like
-    "declaration": false
-  }
+  },
+  "include": [
+    "src/**/*"
+  ]
 }
 ```
 
-## General principles
+## Terms
 
-### Terms
-
-- *Project kind / kind of project*: One of the set of base configurations that this project exports.
+- *Project kind / kind of project*: One of the configurations that this project exports.
 - *Default value*: TypeScript's default value of an option.
 - *Our value*: tsconfig's value of an option in a particular *kind of project*.
 
-### When *our value* is the same as the *default value*
+## When *our value* is the same as the *default value*
 
 Below, all TypeScript configuration options are listed, and, for each of them, the *default value*, *our value* and the reasoning behind it.
 
 When *our value* is the same as the *default value*, then this project **does not speficy it** in its exported base configurations.
 
-### Experimental features
+## Experimental features
 
 Experimental features are outside of the scope of this project. So no experimental feature option is turned on.
 
-### Project kind overview
+## Strictness
 
-The available *project kind*s are a matrix of two vectors:
-1. Whether the project is importable or an end-project.
-1. The runtime environment of the project; one of browser, Node.js and agnostic.
+## Paths
 
-This results on the following *kinds of projects*:
-
-- Browser end-project
-- Node.js end-project
-- Agnostic importable project
-- Browser importable project
-- Node.js importable project
-- ~~Agnostic end-project~~ because that doesn't make sense.
-
-### Strictness
-
-### Paths
+We would love to include some [path options like `include` and `outDir`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#details), but, we feel that it would not be reliable, because TypeScript resolves relative paths from the configuration file in which they appear and not from the end-configuration file. See [this issue](https://github.com/mightyiam/tsconfigs/issues/83).
 
 ## How to use
 
