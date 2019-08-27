@@ -46,11 +46,13 @@ In your `tsconfig.json`:
 - *Default value*: TypeScript's default value of an option.
 - *Our value*: tsconfig's value of an option in a particular *kind of project*.
 
-## When *our value* is the same as the *default value*
+## When *our value* equals *default value*
 
-Below, all TypeScript configuration options are listed, and, for each of them, the *default value*, *our value* and the reasoning behind it.
+Writing this project, we have made a decision regarding each and every documented TypeScript configuration option.
 
-When *our value* is the same as the *default value*, then this project **does not speficy it** in its exported base configurations.
+Regarding options where *our value* is the same as the *default value*, then this project **does not specify it**.
+
+This is an important point, because, if a future TypeScript release changes the default value for an option that tsconfigs does not specify, upgrading to that version of TypeScript in your project would apply that new value.
 
 ## Experimental features
 
