@@ -110,7 +110,7 @@ Unused labels seem like errors.
 - TypeScript default is `false`
 - Our default is `false`
 
-See `strict`.
+See [`Strictness`](#strictness).
 
 ### `baseUrl`
 
@@ -171,7 +171,7 @@ Seems like a sane protection against something unreasonable occurring with the l
 - TypeScript default is `false`
 - Our default is `false`
 
-See `target`.
+See [`target`](#target).
 
 ### `emitBOM`
 
@@ -361,7 +361,7 @@ It seems that this is more of a linting issue than a type checking issue. How ab
 - TypeScript default is `false`
 - Our default is `false`
 
-See `strict`.
+See [`Strictness`](#strictness).
 
 ### `noImplicitReturns`
 
@@ -375,7 +375,7 @@ It seems that if the developer cares about the type checking of the return type 
 - TypeScript default is `false`
 - Our default is `false`
 
-See `strict`.
+See [`Strictness`](#strictness).
 
 ### `noImplicitUseStrict`
 
@@ -446,139 +446,162 @@ Seems outside the scope of this project.
 - TypeScript default is `false`
 - Our default is `false`
 
-### `preserveSymlinks`
+Seems outside the scope of this project.
 
+### `preserveSymlinks`
 
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems outside the scope of this project.
 
 ### `preserveWatchOutput`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+It seems like the default behavior is generally preferable.
 
 ### `pretty`
 
+- TypeScript default is `true` unless piping to another program or redirecting output to a file
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Unset, in order to keep the default behavior, which seems the most desirable.
 
 ### `project`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+A command-line only option.
 
 ### `removeComments`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems outside of the scope of this project.
 
 ### `resolveJsonModule`
 
-
 - TypeScript default is `false`
-- Our default is `false`
+- Our default is `true`
+
+Seems like a somewhat popular feature that does not involve drawbacks.
 
 ### `rootDir`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
 
 ### `rootDirs`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
 
 ### `skipLibCheck`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+Seems like a debugging feature.
 
 ### `sourceMap`
 
-
 - TypeScript default is `false`
-- Our default is `false`
+- Our default is `true`
+
+It seems that it is generally desirable to have source maps. We have chosen normal source maps, rather than inline source maps or inline sources, because it seems that it's the simple choice that would serve most projects.
 
 ### `sourceRoot`
 
+- TypeScript default is `""`
+- Our default is `""`
 
-- TypeScript default is `false`
-- Our default is `false`
+Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
 
 ### `strict`
 
-
 - TypeScript default is `false`
-- Our default is `false`
+- Our default is `true`
+
+See [`Strictness`](#strictness).
 
 ### `strictBindCallApply`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See [`Strictness`](#strictness).
 
 ### `strictFunctionTypes`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See [`Strictness`](#strictness).
 
 ### `strictPropertyInitialization`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See [`Strictness`](#strictness).
 
 ### `strictNullChecks`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+See [`Strictness`](#strictness).
 
 ### `suppressExcessPropertyErrors`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+This project will not relax type checking that is enabled by default.
 
 ### `suppressImplicitAnyIndexErrors`
 
-
 - TypeScript default is `false`
 - Our default is `false`
+
+This project will not relax type checking that is enabled by default.
 
 ### `target`
 
+- TypeScript default is `ES3`
+- Our default is `ESNEXT`
 
-- TypeScript default is `false`
-- Our default is `false`
+We feel that the JavaScript world is stepping away from using TypeScript for down-transpilation in turn for Babel. Also, setting a specific ES version here would mean more frequent breaking changes in releases of this project. Also, we feel that for any kind of project (link to project kinds) we could not predict a desired target.
 
 ### `traceResolution`
-
 
 - TypeScript default is `false`
 - Our default is `false`
 
 ### `tsBuildInfoFile`
 
-
-- TypeScript default is `false`
-- Our default is `false`
+- TypeScript default is `.tsbuildinfo`
+- Our default is `.tsbuildinfo`
 
 ### `types`
 
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
 
 - TypeScript default is `false`
 - Our default is `false`
 
 ### `typeRoots`
+
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
+
 
 ## End-project options
 
