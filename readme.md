@@ -599,14 +599,14 @@ We feel that the JavaScript world is stepping away from using TypeScript for dow
 
 ## End-project options
 
-### `composite`
+### `end-project/composite`
 
 - TypeScript default is `true`
 - Our default is `false`
 
 Because it seems to have no benefit for end-projects and it necessitates generation of declaration files, which seem useless in end-projects.
 
-### `declaration`
+### `end-project/declaration`
 
 - TypeScript default is `false`
 - Our default is `false`
@@ -615,14 +615,14 @@ Because it seems to have no benefit for end-projects.
 
 ## Importable project options
 
-### `composite`
+### `importable-project/composite`
 
 - TypeScript default is `true`
 - Our default is `true`
 
 Because "Referenced projects must have the new composite setting enabled". Importable projects might be referenced projects. And there doesn't seem to be a down-side to this.
 
-### `declaration`
+### `importable-project/declaration`
 
 - TypeScript default is `false`
 - Our default is `true`
@@ -631,38 +631,38 @@ Because we'd like to provide the importer with type definitions.
 
 ## Browser options
 
-### `lib`
+### `browser/lib`
 
 - TypeScript default depends on `target`
 - Our default is `["ESNext","DOM","WebWorker"]`
 
-### `module`
+### `browser/module`
 
 - TypeScript default depends on `target`
 - Our default is `"ESNext"`
 
 ## Node.js options
 
-### `lib`
+### `nodejs/lib`
 
 - TypeScript default depends on `target`
 - Our default is `"ESNext"`
 
 You'd most likely also like to install the [`@types/node` package](https://www.npmjs.com/package/@types/node).
 
-### `module`
+### `nodejs/module`
 
 - TypeScript default depends on `target`
 - Our default is `"CommonJS"`
 
 ## Environment-agnostic project options
 
-### `lib`
+### `agnostic/lib`
 
 - TypeScript default depends on `target`
 - Our default is `"ESNext"`
 
-### `module`
+### `agnostic/module`
 
 - TypeScript default depends on `target`
 - Our default is `"CommonJS"`
