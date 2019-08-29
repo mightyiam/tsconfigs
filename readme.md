@@ -194,7 +194,17 @@ See `experimentalDecorators`.
 - Our default is `true`
 - [Recommended reading](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
 
-Because `import { bar } from 'foo'` seems nicer than `import * as foo from 'foo'; const bar = foo.bar`
+Because
+
+```ts
+import { bar } from 'foo'
+```
+
+seems nicer than
+
+```ts
+import * as foo from 'foo'; const bar = foo.bar
+```
 
 ### `experimentalDecorators`
 
