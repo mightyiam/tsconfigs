@@ -667,4 +667,4 @@ You'd most likely also like to install the [`@types/node` package](https://www.n
 - TypeScript default depends on `target`
 - Our default is `"CommonJS"`
 
-While for small packages, CommonJS could be just fine, for larger packages, where the ability to perform tree shaking is desirable, it seems that the agnostic project author should consider providing two builds. One CommonJS build and one ES modules build.  TODO: read this: https://jasonformat.com/enabling-modern-js-on-npm/
+While for small packages, CommonJS could be just fine, for larger packages, where the ability to perform tree shaking is desirable, it seems that the agnostic project author should consider providing two builds. One CommonJS build and one ES modules build.
