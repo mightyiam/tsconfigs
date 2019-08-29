@@ -85,8 +85,7 @@ In an ideal TypeScript project there is no JavaScript, because TypeScript seems 
 
 - TypeScript default is ***
 - Our default is `false`
-
-https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file
+- [Recommended reading](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
 
 ### `allowUnreachableCode`
 
@@ -191,10 +190,9 @@ See `experimentalDecorators`.
 
 ### `esModuleInterop`
 
-https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file
-
 - TypeScript default is `false`
 - Our default is `true`
+- [Recommended reading](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
 
 Because `import { bar } from 'foo'` seems nicer than `import * as foo from 'foo'; const bar = foo.bar`
 
@@ -203,7 +201,7 @@ Because `import { bar } from 'foo'` seems nicer than `import * as foo from 'foo'
 - TypeScript default is `false`
 - Our default is `false`
 
-See (policy)[#experimental-features] on experimental features.
+See [policy](#experimental-features) on experimental features.
 
 ### `extendedDiagnostics`
 
@@ -351,7 +349,7 @@ TODO: Attach screenshots
 - TypeScript default is `false`
 - Our default is `false`
 
-It seems that this is more of a linting issue than a type checking issue. How about using this ESLint rule? https://eslint.org/docs/rules/no-fallthrough
+It seems that this is more of a linting issue than a type checking issue. How about using the [`no-fallthrough` ESLint rule](https://eslint.org/docs/rules/no-fallthrough)?
 
 ### `noImplicitAny`
 
@@ -407,15 +405,14 @@ This project will not relax type checking that is enabled by default.
 - TypeScript default is `false`
 - Our default is `false`
 
-Seems more like the job of a linter. How about this ESLint rule? https://eslint.org/docs/rules/no-unused-vars
+Seems more like the job of a linter. How about the [`no-unused-vars` ESLint rule](https://eslint.org/docs/rules/no-unused-vars)?
 
 ### `noUnusedParameters`
 
 - TypeScript default is `false`
 - Our default is `false`
 
-Seems more like the job of a linter. How about this ESLint rule?
-https://eslint.org/docs/rules/no-unused-vars
+Seems more like the job of a linter. How about the [`no-unused-vars` ESLint rule](https://eslint.org/docs/rules/no-unused-vars)?
 
 ### `outDir`
 
@@ -590,15 +587,15 @@ We feel that the JavaScript world is stepping away from using TypeScript for dow
 
 ### `types`
 
-https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
-
-- TypeScript default is `false`
-- Our default is `false`
+- TypeScript default is `[]`
+- Our default is ``
+- [Recommended reading](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types)
 
 ### `typeRoots`
 
-https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
-
+- TypeScript default is `[]`
+- Our default is ``
+- [Recommended reading](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types)
 
 ## End-project options
 
@@ -638,7 +635,6 @@ Because we'd like to provide the importer with type definitions.
 
 - TypeScript default depends on `target`
 - Our default is `["ESNext","DOM","WebWorker"]`
-
 
 ### `module`
 
