@@ -114,7 +114,7 @@ See [`Strictness`](#strictness).
 - TypeScript default is `""`
 - Our default is `""`
 
-Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
+See [paths](#paths).
 
 ### `build`
 
@@ -299,7 +299,7 @@ Outside this package's scope.
 - TypeScript default is `false`
 - Our default is `false`
 
-Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
+See [paths](#paths).
 
 ### `maxNodeModuleJsDepth`
 
@@ -422,14 +422,14 @@ https://eslint.org/docs/rules/no-unused-vars
 - TypeScript default is `""`
 - Our default is `""`
 
-Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
+See [paths](#paths).
 
 ### `outFile`
 
 - TypeScript default is `""`
 - Our default is `""`
 
-Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
+See [paths](#paths).
 
 ### `paths`
 
@@ -492,14 +492,14 @@ Seems like a somewhat popular feature that does not involve drawbacks.
 - TypeScript default is `""`
 - Our default is `""`
 
-Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
+See [paths](#paths).
 
 ### `rootDirs`
 
 - TypeScript default is `""`
 - Our default is `""`
 
-Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
+See [paths](#paths).
 
 ### `skipLibCheck`
 
@@ -520,7 +520,7 @@ It seems that it is generally desirable to have source maps. We have chosen norm
 - TypeScript default is `""`
 - Our default is `""`
 
-Cannot be reliably set due to https://github.com/microsoft/TypeScript/issues/29172.
+See [paths](#paths).
 
 ### `strict`
 
