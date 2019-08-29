@@ -28,7 +28,7 @@ This results in the following kinds of projects:
 
 In your `tsconfig.json`:
 
-```json
+```jsonc
 {
   "extends": "tsconfigs/browser-end-project",
   "compilerOptions": {
