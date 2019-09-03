@@ -64,98 +64,122 @@ tsconfigs maintains the *opt-out* behavior: we turn `strict` on and yet keep the
 
 We would love to include some [path options like `include` and `outDir`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#details), but, we feel that it would not be reliable, because TypeScript resolves relative paths from the configuration file in which they appear and not from the end-configuration file. See [this issue](https://github.com/mightyiam/tsconfigs/issues/83).
 
-## Unchanged options
+## How to use
 
-Writing this project, we have made a decision regarding each and every documented TypeScript configuration option.
-
-Listed below are the options that we have decided to not specify, therefore keeping TypeScript's default values.
-
-This is important information because if a future TypeScript release changes the default value for one of these, upgrading to that version of TypeScript in your project would apply that new value.
-
-| Option                         | TypeScript v3.6.2 default | Explanation                                                                                                                                                                                                                                                                                                                               |
-|--------------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| allowJs                        | `false`                   | In an ideal TypeScript project there is no JavaScript, because TypeScript seems superior.                                                                                                                                                                                                                                                 |
-| allowUnusedLabels              | `false`                   | Unused labels seem like errors.                                                                                                                                                                                                                                                                                                           |
-| alwaysStrict                   | `false`                   | See [`Strictness`](#strictness).                                                                                                                                                                                                                                                                                                          |
-| baseUrl                        | Not defined               | See [paths](#paths).                                                                                                                                                                                                                                                                                                                      |
-| build                          | `false`                   | Too project-specific.                                                                                                                                                                                                                                                                                                                     |
-| charset                        | `"utf8"`                  |                                                                                                                                                                                                                                                                                                                                           |
-| checkJs                        | `false`                   | In an ideal TypeScript project there is no JavaScript, because TypeScript seems superior.                                                                                                                                                                                                                                                 |
-| declarationDir                 | Not defined               | Irrelevant, because `declaration: false`.                                                                                                                                                                                                                                                                                                 |
-| declarationMap                 | `false`                   | It seems like this is for debugging the TypeScript project itself, and not for the common user.                                                                                                                                                                                                                                           |
-| diagnostics                    | `false`                   |                                                                                                                                                                                                                                                                                                                                           |
-| disableSizeLimit               | `false`                   | Seems like a sane protection against something unreasonable occurring with the loading of source files.                                                                                                                                                                                                                                   |
-| downlevelIteration             | `false`                   | See [`target`](#target).                                                                                                                                                                                                                                                                                                                  |
-| emitBOM                        | `false`                   | Seems like a rare and obscure use case. We put a few minutes into researching this and came up with very little.                                                                                                                                                                                                                          |
-| emitDeclarationOnly            | `false`                   |                                                                                                                                                                                                                                                                                                                                           |
-| emitDecoratorMetadata          | `false`                   | See `experimentalDecorators`.                                                                                                                                                                                                                                                                                                             |
-| experimentalDecorators         | `false`                   | See [policy](#experimental-features) on experimental features.                                                                                                                                                                                                                                                                            |
-| extendedDiagnostics            | `false`                   |                                                                                                                                                                                                                                                                                                                                           |
-| importHelpers                  | `false`                   | See `target`.                                                                                                                                                                                                                                                                                                                             |
-| inlineSourceMap                | `false`                   | See `sourceMaps`.                                                                                                                                                                                                                                                                                                                         |
-| inlineSources                  | `false`                   | See `sourceMaps`.                                                                                                                                                                                                                                                                                                                         |
-| isolatedModules                | `false`                   | Seems like using it would cause us to lose cross-module/file type checking. And that would seem to be a big loss for no apparent reason.                                                                                                                                                                                                  |
-| jsx                            | `"preserve"`              | Out of this package's scope.                                                                                                                                                                                                                                                                                                              |
-| jsxFactory                     | `"React.createElement"`   | This is only relevant when `"jsx": "react"`. And in most of those cases, `"React.createElement"` would seem to be the desired value.                                                                                                                                                                                                      |
-| keyofStringsOnly               | `false`                   | This seems to disable a generally desirable type checking feature.                                                                                                                                                                                                                                                                        |
-| listEmittedFiles               | `false`                   | Seems like this would be used mostly for debugging.                                                                                                                                                                                                                                                                                       |
-| listFiles                      | `false`                   | Seems like this would be used mostly for debugging.                                                                                                                                                                                                                                                                                       |
-| locale                         | Not defined               | Outside this package's scope.                                                                                                                                                                                                                                                                                                             |
-| mapRoot                        | Not defined               | See [paths](#paths).                                                                                                                                                                                                                                                                                                                      |
-| maxNodeModuleJsDepth           | `0`                       | This is only relevant when `"checkJs": true`. While this could be useful for obtaining types for installed dependencies, many popular open source libraries have `.d.ts` (declaration files) available. So this doesn't seem to provide much value. In addition, if `"checkJs": true`, files in `node_modules` might trigger type errors. |
-| noEmit                         | `false`                   |                                                                                                                                                                                                                                                                                                                                           |
-| noEmitHelpers                  | `false`                   |                                                                                                                                                                                                                                                                                                                                           |
-| noEmitOnError                  | `false`                   | Emitting on errors seems useful during development, as long as the exit code is non-zero.                                                                                                                                                                                                                                                 |
-| noFallthroughCasesInSwitch     | `false`                   | It seems that this is more of a linting issue than a type checking issue. How about using the [`no-fallthrough` ESLint rule](https://eslint.org/docs/rules/no-fallthrough)?                                                                                                                                                               |
-| noImplicitAny                  | `false`                   | See [`Strictness`](#strictness).                                                                                                                                                                                                                                                                                                          |
-| noImplicitReturns              | `false`                   | It seems that if the developer cares about the type checking of the return type of a function, then she would be better off specifying it than using this.                                                                                                                                                                                |
-| noImplicitThis                 | `false`                   | See [`Strictness`](#strictness).                                                                                                                                                                                                                                                                                                          |
-| noImplicitUseStrict            | `false`                   | Strict mode is widely considered desirable.                                                                                                                                                                                                                                                                                               |
-| noLib                          | `false`                   | Seems like a rarely used flag.                                                                                                                                                                                                                                                                                                            |
-| noResolve                      | `false`                   | Seems outside the scope of this project.                                                                                                                                                                                                                                                                                                  |
-| noStrictGenericChecks          | `false`                   | This project will not relax type checking that is enabled by default.                                                                                                                                                                                                                                                                     |
-| noUnusedLocals                 | `false`                   | Seems more like the job of a linter. How about the [`no-unused-vars` ESLint rule](https://eslint.org/docs/rules/no-unused-vars)?                                                                                                                                                                                                          |
-| noUnusedParameters             | `false`                   | Seems more like the job of a linter. How about the [`no-unused-vars` ESLint rule](https://eslint.org/docs/rules/no-unused-vars)?                                                                                                                                                                                                          |
-| outDir                         | Not defined               | See [paths](#paths).                                                                                                                                                                                                                                                                                                                      |
-| outFile                        | Not defined               | See [paths](#paths).                                                                                                                                                                                                                                                                                                                      |
-| paths                          | Not defined               | Seems outside the scope of this project.                                                                                                                                                                                                                                                                                                  |
-| preserveConstEnums             | `false`                   | Seems outside the scope of this project.                                                                                                                                                                                                                                                                                                  |
-| preserveSymlinks               | `false`                   | Seems outside the scope of this project.                                                                                                                                                                                                                                                                                                  |
-| preserveWatchOutput            | `false`                   | It seems like the default behavior is generally preferable.                                                                                                                                                                                                                                                                               |
-| pretty                         | It depends                | Unset, in order to keep the default behavior, which seems the most desirable.                                                                                                                                                                                                                                                             |
-| project                        | Not defined               | A command-line only option.                                                                                                                                                                                                                                                                                                               |
-| removeComments                 | `false`                   | Seems outside of the scope of this project.                                                                                                                                                                                                                                                                                               |
-| rootDir                        | It depends                | See [paths](#paths).                                                                                                                                                                                                                                                                                                                      |
-| rootDirs                       | Not defined               | See [paths](#paths).                                                                                                                                                                                                                                                                                                                      |
-| skipLibCheck                   | `false`                   | Seems like a debugging feature.                                                                                                                                                                                                                                                                                                           |
-| sourceRoot                     | Not defined               | See [paths](#paths).                                                                                                                                                                                                                                                                                                                      |
-| strictBindCallApply            | `false`                   | See [`Strictness`](#strictness).                                                                                                                                                                                                                                                                                                          |
-| strictFunctionTypes            | `false`                   | See [`Strictness`](#strictness).                                                                                                                                                                                                                                                                                                          |
-| strictPropertyInitialization   | `false`                   | See [`Strictness`](#strictness).                                                                                                                                                                                                                                                                                                          |
-| strictNullChecks               | `false`                   | See [`Strictness`](#strictness).                                                                                                                                                                                                                                                                                                          |
-| suppressExcessPropertyErrors   | `false`                   | This project will not relax type checking that is enabled by default.                                                                                                                                                                                                                                                                     |
-| suppressImplicitAnyIndexErrors | `false`                   | This project will not relax type checking that is enabled by default.                                                                                                                                                                                                                                                                     |
-| traceResolution                | `false`                   |                                                                                                                                                                                                                                                                                                                                           |
-| tsBuildInfoFile                | `".tsbuildinfo"`          |                                                                                                                                                                                                                                                                                                                                           |
-| types                          | Not defined               | [Recommended reading](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types).                                                                                                                                                                                                                         |
-| typeRoots                      | Not defined               | [Recommended reading](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types).                                                                                                                                                                                                                         |
+1. Pick a *project kind*.
+How to extend
 
 ## Options common to all project kinds
 
-| Option                           | TypeScript v3.6.2 default | Our value  | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-|----------------------------------|---------------------------|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| allowSyntheticDefaultImports     | It depends                | `true`     | Because`import foo from 'foo'`seems nicer than`import { default as foo } from 'foo'`[Recommended reading](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file).                                                                                                                                                                                                                                                                                                                                                               |
-| allowUnreachableCode             | `true`                    | `false`    | Unreachable code seems like an error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| esModuleInterop                  | `false`                   | `true`     | Because `import { bar } from 'foo'` seems nicer than `import * as foo from 'foo'; const bar = foo.bar`. [Recommended reading](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file).                                                                                                                                                                                                                                                                                                                                           |
-| forceConsistentCasingInFileNames | `false`                   | `true`     | While this does not force case sensitivity in file name references, it at least ensures consistent casing.                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| incremental                      | It depends                | `true`     | Also see `tsBuildInfoFile`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| moduleResolution                 | It depends                | `"Node"`   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| newLine                          | It depends                | `"lf"`     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| noErrorTruncation                | `false`                   | `true`     | This seems helpful. See attached screenshots (in my Drive).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| resolveJsonModule                | `false`                   | `true`     | Seems like a somewhat popular feature that does not involve drawbacks.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| sourceMap                        | `false`                   | `true`     | It seems that it is generally desirable to have source maps. We have chosen normal source maps, rather than inline source maps or inline sources, because it seems that it's the simple choice that would serve most projects.                                                                                                                                                                                                                                                                                                                                        |
-| strict                           | `false`                   | `true`     | This project assumes that strict type checking is generally desirable.New type checking features in future releases of TypeScript, are, according to policy, off by default, for backwards compatibility. Effectively making new type features, opt-in.The `strict` flag, however, turns on a set of type checking features. And future features will be included in it. Effectively making new type checking features opt-out.This project maintains this behavior. While we turn `strict` on and yet keep the individual type check features that it includes, off. |
-| target                           | `"ES3"`                   | `"ESNEXT"` | We feel that the JavaScript world is stepping away from using TypeScript for down-transpilation in turn for Babel. Also, setting a specific ES version here would mean more frequent breaking changes in releases of this project. Also, we feel that for any kind of project (link to project kinds) we could not predict a desired target.                                                                                                                                                                                                                          |
+### `allowJs`
+
+- TypeScript default is `false`
+- Out default is `true`
+
+### `allowSyntheticDefaultImports`
+
+- TypeScript default *depends*
+- Our default is `false`
+
+Because
+
+```ts
+import foo from 'foo'
+```
+
+seems nicer than
+
+```ts
+import { default as foo } from 'foo'
+```
+
+Recommended reading: [this Stack Overflow question](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
+
+### `checkJs`
+
+- TypeScript default is `false`
+- Our default is `true`
+
+### `esModuleInterop`
+
+- TypeScript default is `false`
+- Our default is `true`
+
+Because
+
+```ts
+import { bar } from 'foo'
+```
+
+Seems nicer than
+
+```ts
+import * as foo from 'foo'
+const { bar } = foo
+```
+
+Recommended reading: [this Stack Overflow question](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
+
+### `forceConsistentCasingInFileNames`
+
+- TypeScript default is `false`
+- Our default is `true`
+
+While this does not force case sensitivity, it at least enforces consistent casing.
+
+### `incremental`
+
+- TypeScript default is `true` if composite is on, `false` otherwise
+- Our default is `true`
+
+### `moduleResolution`
+
+- TypeScript default is `"Classic"` if `module` is `"AMD"` or `"System"` or `"ES6"` otherwise `"Node"`
+- Our default is `"Node"`
+
+### `newLine`
+
+- TypeScript default is platform specific.
+- Our default is `"lf"`
+
+We recommend usage of something like [EditorConfig](https://editorconfig.org) to assist setting line ending in code editors.
+
+### `noErrorTruncation`
+
+- TypeScript default is `false`
+- Our default is `true`
+
+This seems helpful. See attached screenshots (in my Drive).
+
+TODO: Attach screenshots
+
+### `resolveJsonModule`
+
+- TypeScript default is `false`
+- Our default is `true`
+
+Seems like a somewhat popular feature that does not involve drawbacks.
+
+### `sourceMap`
+
+- TypeScript default is `false`
+- Our default is `true`
+
+It seems that it is generally desirable to have source maps. We have chosen normal source maps, rather than inline source maps or inline sources, because it seems that it's the simple choice that would serve most projects.
+
+### `strict`
+
+- TypeScript default is `false`
+- Our default is `true`
+
+See [`Strictness`](#strictness).
+
+### `target`
+
+- TypeScript default is `ES3`
+- Our default is `ESNEXT`
+
+We feel that the JavaScript world is stepping away from using TypeScript for down-transpilation in turn for Babel. Also, setting a specific ES version here would mean more frequent breaking changes in releases of this project. Also, we feel that for any kind of project (link to project kinds) we could not predict a desired target.
 
 ## End-project options
 
