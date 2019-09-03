@@ -66,7 +66,7 @@ We would love to include some [path options like `include` and `outDir`](https:/
 
 ## Options common to all project kinds
 
-### allowSyntheticDefaultImports (depends): `false`
+### allowSyntheticDefaultImports (default: depends): `false`
 
 ```ts
 import foo from 'foo'
@@ -80,7 +80,7 @@ import { default as foo } from 'foo'
 
 Recommended reading: [this Stack Overflow question](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
 
-### esModuleInterop (`false`): `true`
+### esModuleInterop (default: `false`): `true`
 
 ```ts
 import { bar } from 'foo'
@@ -95,59 +95,63 @@ const { bar } = foo
 
 Recommended reading: [this Stack Overflow question](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
 
-### forceConsistentCasingInFileNames (`false`): `true`
+### forceConsistentCasingInFileNames (default: `false`): `true`
 
 While this does not force case sensitivity, it at least enforces consistent casing.
 
-### incremental (depends): `true`
+### incremental (default: depends): `true`
 
 TypeScript default is `true` if composite is on, `false` otherwise.
 
 Seems like a generally desirable optimization. Especially for larger projects.
 
-### moduleResolution (depends): `"Node"`
+### moduleResolution (default: depends): `"Node"`
 
 TypeScript default is `"Classic"` if `module` is `"AMD"` or `"System"` or `"ES6"` otherwise `"Node"`.
 
 The most popular choice.
 
-### newLine (depends): `"lf"`
+### newLine (default: depends): `"lf"`
 
 TypeScript default is platform specific.
 
 For the sake of consistent build artifacts cross-platform.
 
-### noErrorTruncation (`false`): `true`
+### noErrorTruncation (default: `false`): `true`
 
-This seems helpful. See attached screenshots (in my Drive).
+Screenshot with `false`:
 
-TODO: Attach screenshots
+![An error message with truncated parts](assets/noErrorTruncation.false.png?raw=true)
 
-### resolveJsonModule (`false`): `true`
+Screenshot with `true`:
+
+![A full error message](assets/noErrorTruncation.true.png?raw=true)
+
+### resolveJsonModule (default: `false`): `true`
 
 Seems like a popular feature that does not involve drawbacks.
 
-### sourceMap (`false`): `true`
+### sourceMap (default: `false`): `true`
 
 Source maps make debugging easier. We have chosen normal source maps, rather than inline source maps or inline sources, because it seems that it's the simple choice that would serve most projects.
 
-### strict (`false`): `true`
+### strict (default: `false`): `true`
 
 See [`Strictness`](#strictness).
 
-### target (`"ES3"`): `"ESNEXT"`
+### target (default: `"ES3"`): `"ESNEXT"`
 
 We feel that the JavaScript world is stepping away from using TypeScript for down-transpilation in turn for Babel. Also, setting a specific ES version here would mean more frequent breaking changes in releases of this project. Also, we feel that for any kind of project (link to project kinds) we could not predict a desired target.
 
 ## End-project options
 
-### composite (`true`): `false`
+### composite (default: `true`): `false`
 
 Because it seems to have no benefit for end-projects and it necessitates generation of declaration files, which seem useless in end-projects.
 
 ## Importable project options
 
-### declaration (`false`): `true`
+### declaration (default: `false`): `true`
 
 Because we'd like to provide the importer with type definitions.
 
