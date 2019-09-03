@@ -64,11 +64,6 @@ tsconfigs maintains the *opt-out* behavior: we turn `strict` on and yet keep the
 
 We would love to include some [path options like `include` and `outDir`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#details), but, we feel that it would not be reliable, because TypeScript resolves relative paths from the configuration file in which they appear and not from the end-configuration file. See [this issue](https://github.com/mightyiam/tsconfigs/issues/83).
 
-## How to use
-
-1. Pick a *project kind*.
-How to extend
-
 ## Options common to all project kinds
 
 ### allowJs (`false`): `true`
