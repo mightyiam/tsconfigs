@@ -71,17 +71,11 @@ How to extend
 
 ## Options common to all project kinds
 
-### `allowJs`
+### allowJs (`false`): `true`
 
-- TypeScript default is `false`
-- Out default is `true`
+TODO
 
-### `allowSyntheticDefaultImports`
-
-- TypeScript default *depends*
-- Our default is `false`
-
-Because
+### allowSyntheticDefaultImports (depends): `false`
 
 ```ts
 import foo from 'foo'
@@ -95,17 +89,11 @@ import { default as foo } from 'foo'
 
 Recommended reading: [this Stack Overflow question](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
 
-### `checkJs`
+### checkJs (`false`): `true`
 
-- TypeScript default is `false`
-- Our default is `true`
+TODO
 
-### `esModuleInterop`
-
-- TypeScript default is `false`
-- Our default is `true`
-
-Because
+### esModuleInterop (`false`): `true`
 
 ```ts
 import { bar } from 'foo'
@@ -120,98 +108,100 @@ const { bar } = foo
 
 Recommended reading: [this Stack Overflow question](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
 
-### `forceConsistentCasingInFileNames`
-
-- TypeScript default is `false`
-- Our default is `true`
+### forceConsistentCasingInFileNames (`false`): `true`
 
 While this does not force case sensitivity, it at least enforces consistent casing.
 
-### `incremental`
+### incremental (depends): `true`
 
-- TypeScript default is `true` if composite is on, `false` otherwise
-- Our default is `true`
+TypeScript default is `true` if composite is on, `false` otherwise.
 
-### `moduleResolution`
+TODO
 
-- TypeScript default is `"Classic"` if `module` is `"AMD"` or `"System"` or `"ES6"` otherwise `"Node"`
-- Our default is `"Node"`
+### moduleResolution (depends): `"Node"`
 
-### `newLine`
+TypeScript default is `"Classic"` if `module` is `"AMD"` or `"System"` or `"ES6"` otherwise `"Node"`.
 
-- TypeScript default is platform specific.
-- Our default is `"lf"`
+TODO
+
+### newLine (depends): `"lf"`
+
+TypeScript default is platform specific.
+
+TODO: why
 
 We recommend usage of something like [EditorConfig](https://editorconfig.org) to assist setting line ending in code editors.
 
-### `noErrorTruncation`
-
-- TypeScript default is `false`
-- Our default is `true`
+### noErrorTruncation (`false`): `true`
 
 This seems helpful. See attached screenshots (in my Drive).
 
 TODO: Attach screenshots
 
-### `resolveJsonModule`
+### resolveJsonModule (`false`): `true`
 
-- TypeScript default is `false`
-- Our default is `true`
+Seems like a popular feature that does not involve drawbacks.
 
-Seems like a somewhat popular feature that does not involve drawbacks.
+### sourceMap (`false`): `true`
 
-### `sourceMap`
+Source maps make debugging easier. We have chosen normal source maps, rather than inline source maps or inline sources, because it seems that it's the simple choice that would serve most projects.
 
-- TypeScript default is `false`
-- Our default is `true`
-
-It seems that it is generally desirable to have source maps. We have chosen normal source maps, rather than inline source maps or inline sources, because it seems that it's the simple choice that would serve most projects.
-
-### `strict`
-
-- TypeScript default is `false`
-- Our default is `true`
+### strict (`false`): `true`
 
 See [`Strictness`](#strictness).
 
-### `target`
-
-- TypeScript default is `ES3`
-- Our default is `ESNEXT`
+### target (`"ES3"`): `"ESNEXT"`
 
 We feel that the JavaScript world is stepping away from using TypeScript for down-transpilation in turn for Babel. Also, setting a specific ES version here would mean more frequent breaking changes in releases of this project. Also, we feel that for any kind of project (link to project kinds) we could not predict a desired target.
 
 ## End-project options
 
-| Option      | TypeScript v3.6.2 default | Our value | Explanation                                                                                                                                   |
-|-------------|---------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| composite   | `true`                    | `false`   | Because it seems to have no benefit for end-projects and it necessitates generation of declaration files, which seem useless in end-projects. |
-| declaration | `false`                   | `false`   | Because it seems to have no benefit for end-projects.                                                                                         |
+### composite (`true`): `false`
+
+Because it seems to have no benefit for end-projects and it necessitates generation of declaration files, which seem useless in end-projects.
 
 ## Importable project options
 
-| Option      | TypeScript v3.6.2 default | Our value | Explanation                                                                                                                                                                    |
-|-------------|---------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| composite   | `true`                    | `true`    | Because "Referenced projects must have the new composite setting enabled". Importable projects might be referenced projects. And there doesn't seem to be a down-side to this. |
-| declaration | `false`                   | `true`    | Because we'd like to provide the importer with type definitions.                                                                                                               |
+### declaration (`false`): `true`
+
+Because we'd like to provide the importer with type definitions.
 
 ## Browser options
 
-| Option | TypeScript v3.6.2 default | Our value                      |
-|--------|---------------------------|--------------------------------|
-| lib    | It depends                | `["ESNext","DOM","WebWorker"]` |
-| module | It depends                | `"ESNext"`                     |
+### lib
+
+- TypeScript default depends on `target`.
+- Our default is `["ESNext","DOM","WebWorker"]`.
+
+### module
+
+- TypeScript default depends on `target`.
+- Our default is `"ESNext"`.
 
 ## Node.js options
 
-| Option | TypeScript v3.6.2 default | Our value      | Note                                                              |
-|--------|---------------------------|----------------|-------------------------------------------------------------------|
-| lib    | It depends                | `["ESNext"]`   | You'd most likely also like to install the `@types/node` package. |
-| module | It depends                | `"CommonJS"`   |                                                                   |
+### lib
+
+- TypeScript default depends on `target`.
+- Our default is `"ESNext"`.
+
+You'd most likely also like to install the [`@types/node` package](https://www.npmjs.com/package/@types/node).
+
+### module
+
+- TypeScript default depends on `target`.
+- Our default is `"CommonJS"`.
 
 ## Environment-agnostic project options
 
-| Option | TypeScript v3.6.2 default | Our value    | Note                                                                                                                                                                                                                                                             |
-|--------|---------------------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| lib    | It depends                | `["ESNext"]` |                                                                                                                                                                                                                                                                  |
-| module | It depends                | `"CommonJS"` | While for small packages, CommonJS could be just fine, for larger packages, where the ability to perform tree shaking is desirable, it seems that the agnostic project author should consider providing two builds. One CommonJS build and one ES modules build. |
+### lib
+
+- TypeScript default depends on `target`.
+- Our default is `"ESNext"`.
+
+### module
+
+- TypeScript default depends on `target`
+- Our default is `"CommonJS"`
+
+While for small packages, CommonJS could be just fine, for larger packages, where the ability to perform tree shaking is desirable, it seems that the agnostic project author should consider providing two builds. One CommonJS build and one ES modules build.
