@@ -103,21 +103,19 @@ While this does not force case sensitivity, it at least enforces consistent casi
 
 TypeScript default is `true` if composite is on, `false` otherwise.
 
-TODO
+Seems like a generally desirable optimization. Especially for larger projects.
 
 ### moduleResolution (depends): `"Node"`
 
 TypeScript default is `"Classic"` if `module` is `"AMD"` or `"System"` or `"ES6"` otherwise `"Node"`.
 
-TODO
+The most popular choice.
 
 ### newLine (depends): `"lf"`
 
 TypeScript default is platform specific.
 
-TODO: why
-
-We recommend usage of something like [EditorConfig](https://editorconfig.org) to assist setting line ending in code editors.
+For the sake of consistent build artifacts cross-platform.
 
 ### noErrorTruncation (`false`): `true`
 
