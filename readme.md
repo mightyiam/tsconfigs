@@ -66,10 +66,6 @@ We would love to include some [path options like `include` and `outDir`](https:/
 
 ## Options common to all project kinds
 
-### allowJs (`false`): `true`
-
-TODO
-
 ### allowSyntheticDefaultImports (depends): `false`
 
 ```ts
@@ -83,10 +79,6 @@ import { default as foo } from 'foo'
 ```
 
 Recommended reading: [this Stack Overflow question](https://stackoverflow.com/questions/56238356/understanding-esmoduleinterop-in-tsconfig-file)
-
-### checkJs (`false`): `true`
-
-TODO
 
 ### esModuleInterop (`false`): `true`
 
