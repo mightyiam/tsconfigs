@@ -30,9 +30,10 @@ In your `tsconfig.json`:
 
 ```jsonc
 {
-  "extends": "tsconfigs/browser-end-project",
+  "extends": "tsconfigs/nodejs-end-project",
   "compilerOptions": {
     // Override whatever you like
+    "outDir": "lib"
   },
   "include": [
     "src/**/*"
