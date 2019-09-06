@@ -7,11 +7,11 @@ declare module 'typescript' {
 }
 
 type ConfigName =
-  'browser-importable-project' |
-  'nodejs-importable-project' |
-  'agnostic-importable-project' |
-  'browser-end-project' |
-  'nodejs-end-project'
+  'browser-module' |
+  'nodejs-module' |
+  'agnostic-module' |
+  'browser-executable' |
+  'nodejs-executable'
 
 type OptionValue = CompilerOptions[string]
 type OptionParser = (value: any) => CompilerOptions[string]

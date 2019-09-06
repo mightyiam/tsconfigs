@@ -12,17 +12,17 @@ This is a set of reusable TypeScript configuration files to extend from.
 
 The available *project kind*s are a matrix of two criteria:
 
-1. Whether the project is `importable` or an `end-project`.
+1. Whether the project is `importable` or an `executable`.
 1. The runtime environment of the project; `browser`, `nodejs` or `agnostic`.
 
 This results in the following kinds of projects:
 
-- `browser-importable-project`
-- `nodejs-importable-project`
-- `agnostic-importable-project`
-- `browser-end-project`
-- `nodejs-end-project`
-- ~~`agnostic-end-project`~~ because an end-project needs a runtime, doesn't it?
+- `browser-module`
+- `nodejs-module`
+- `agnostic-module`
+- `browser-executable`
+- `nodejs-executable`
+- ~~`agnostic-executable`~~ doesn't make sense
 
 ## Example
 
@@ -30,7 +30,7 @@ In your `tsconfig.json`:
 
 ```jsonc
 {
-  "extends": "tsconfigs/nodejs-end-project",
+  "extends": "tsconfigs/nodejs-executable",
   "compilerOptions": {
     // Override whatever you like
     "outDir": "lib"
@@ -138,11 +138,11 @@ See [`Strictness`](#strictness).
 
 We feel that the JavaScript world is stepping away from using TypeScript for down-transpilation in turn for Babel. Also, setting a specific ES version here would mean more frequent breaking changes in releases of this project. Also, we feel that for any kind of project (link to project kinds) we could not predict a desired target.
 
-## End-project options
+## executable options
 
-### end-project composite (default: `true`): `false`
+### executable composite (default: `true`): `false`
 
-Because it seems to have no benefit for end-projects and it necessitates generation of declaration files, which seem useless in end-projects.
+Because it seems to have no benefit for executables and it necessitates generation of declaration files, which seem useless in executables.
 
 ## Importable project options
 

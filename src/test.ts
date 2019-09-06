@@ -23,7 +23,7 @@ const importableProject = {
   declaration: true
 }
 
-test(macro, 'nodejs-end-project', {
+test(macro, 'nodejs-executable', {
   compilerOptions: {
     ...common,
     ...endProject,
@@ -32,7 +32,7 @@ test(macro, 'nodejs-end-project', {
   }
 })
 
-test(macro, 'browser-end-project', {
+test(macro, 'browser-executable', {
   compilerOptions: {
     ...common,
     ...endProject,
@@ -41,7 +41,7 @@ test(macro, 'browser-end-project', {
   }
 })
 
-test(macro, 'nodejs-importable-project', {
+test(macro, 'nodejs-module', {
   compilerOptions: {
     ...common,
     ...importableProject,
@@ -50,7 +50,7 @@ test(macro, 'nodejs-importable-project', {
   }
 })
 
-test(macro, 'browser-importable-project', {
+test(macro, 'browser-module', {
   compilerOptions: {
     ...common,
     ...importableProject,
@@ -59,7 +59,7 @@ test(macro, 'browser-importable-project', {
   }
 })
 
-test(macro, 'agnostic-importable-project', {
+test(macro, 'agnostic-module', {
   compilerOptions: {
     ...common,
     ...importableProject,

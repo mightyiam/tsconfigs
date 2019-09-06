@@ -1,5 +1,5 @@
 {
-  "extends": "./_private/end-project",
+  "extends": "./_private/module",
   "compilerOptions": {
     "lib": ["ESNext", "DOM", "WebWorker"],
     "module": "ESNext"
