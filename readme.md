@@ -67,7 +67,7 @@ We would love to include some [path options like `include` and `outDir`](https:/
 
 ## Options common to all project kinds
 
-### allowSyntheticDefaultImports (default: depends): `false`
+### allowSyntheticDefaultImports (default: depends): `true`
 
 ```ts
 import foo from 'foo'
@@ -100,19 +100,13 @@ Recommended reading: [this Stack Overflow question](https://stackoverflow.com/qu
 
 While this does not force case sensitivity, it at least enforces consistent casing.
 
-### incremental (default: depends): `true`
-
-TypeScript default is `true` if composite is on, `false` otherwise.
-
-Seems like a generally desirable optimization. Especially for larger projects.
-
-### moduleResolution (default: depends): `"Node"`
+### moduleResolution (default: depends): `"node"`
 
 TypeScript default is `"Classic"` if `module` is `"AMD"` or `"System"` or `"ES6"` otherwise `"Node"`.
 
 The most popular choice.
 
-### newLine (default: depends): `"lf"`
+### newLine (default: depends): `"LF"`
 
 TypeScript default is platform specific.
 
@@ -140,7 +134,7 @@ Source maps make debugging easier. We have chosen normal source maps, rather tha
 
 See [`Strictness`](#strictness).
 
-### target (default: `"ES3"`): `"ESNEXT"`
+### target (default: `"es3"`): `"esnext"`
 
 We feel that the JavaScript world is stepping away from using TypeScript for down-transpilation in turn for Babel. Also, setting a specific ES version here would mean more frequent breaking changes in releases of this project. Also, we feel that for any kind of project (link to project kinds) we could not predict a desired target.
 
@@ -150,9 +144,9 @@ We feel that the JavaScript world is stepping away from using TypeScript for dow
 
 Because it seems to have no benefit for end-projects and it necessitates generation of declaration files, which seem useless in end-projects.
 
-## end-project Importable project options
+## Importable project options
 
-### end-project declaration (default: `false`): `true`
+### importable declaration (default: `false`): `true`
 
 Because we'd like to provide the importer with type definitions.
 
@@ -173,7 +167,7 @@ Because we'd like to provide the importer with type definitions.
 ### nodejs lib
 
 - TypeScript default depends on `target`.
-- Our default is `"ESNext"`.
+- Our default is `["ESNext"]`.
 
 You'd most likely also like to install the [`@types/node` package](https://www.npmjs.com/package/@types/node).
 
@@ -187,7 +181,7 @@ You'd most likely also like to install the [`@types/node` package](https://www.n
 ### agnostic lib
 
 - TypeScript default depends on `target`.
-- Our default is `"ESNext"`.
+- Our default is `["ESNext"]`.
 
 ### agnostic module
 

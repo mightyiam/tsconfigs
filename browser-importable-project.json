@@ -1,0 +1,7 @@
+{
+  "extends": "./_private/importable-project",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM", "WebWorker"],
+    "module": "ESNext"
+  }
+}

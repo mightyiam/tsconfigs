@@ -1,0 +1,7 @@
+{
+  "extends": "./_private/end-project",
+  "compilerOptions": {
+    "lib": ["ESNext"],
+    "module": "CommonJS"
+  }
+}
