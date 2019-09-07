@@ -5,9 +5,9 @@
   "scripts": {
     "lint-js": "eslint --ext .js,.ts .",
     "lint-md": "markdownlint --ignore node_modules **/*.md",
-    "compile": "tsc",
+    "transpile": "tsc",
     "unit": "ava",
-    "test": "run-s lint-js lint-md compile unit"
+    "test": "run-s lint-js lint-md transpile unit"
   },
   "repository": {
     "type": "git",
