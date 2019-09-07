@@ -42,7 +42,7 @@ const rawToCompilerOptions = (raw: any): CompilerOptions => ({
     Object.entries(raw)
       .map(([key, value]: [string, any]): [string, OptionValue] => {
         const parser = optionParsers[key]
-        if (!parser) return [key, value]
+        if (parser === undefined) return [key, value]
         return [key, parser(value)]
       })
   )

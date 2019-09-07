@@ -1,0 +1,9 @@
+{
+  "extends": "./nodejs-executable",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "files": [
+    "commitlint.config.js"
+  ]
+}
