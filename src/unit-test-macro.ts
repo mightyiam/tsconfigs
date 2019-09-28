@@ -1,17 +1,11 @@
-import { Assertions, Macro } from 'ava'
+import { Macro, ExecutionContext } from 'ava'
 import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import { libMap, CompilerOptions, ModuleKind, ModuleResolutionKind, NewLineKind, ScriptTarget, readConfigFile, parseJsonConfigFileContent, sys } from 'typescript'
+import { ConfigName } from './shared'
 declare module 'typescript' {
   export const libMap: Map<string>
 }
-
-type ConfigName =
-  'browser-module' |
-  'nodejs-module' |
-  'agnostic-module' |
-  'browser-executable' |
-  'nodejs-executable'
 
 type OptionValue = CompilerOptions[string]
 type OptionParser = (value: any) => CompilerOptions[string]
@@ -48,8 +42,8 @@ const rawToCompilerOptions = (raw: any): CompilerOptions => ({
   )
 })
 
-export const macro: Macro<[ConfigName, any]> = (
-  t: Assertions,
+export const unitTest: Macro<[ConfigName, any]> = (
+  t: ExecutionContext,
   configName: ConfigName,
   { compilerOptions: rawExpectedOptions }: any
 ): void => {
@@ -65,4 +59,4 @@ export const macro: Macro<[ConfigName, any]> = (
   t.deepEqual(actual.options, expectedOptions)
 }
 
-macro.title = (_, name: ConfigName): ConfigName => name
+unitTest.title = () => 'unit'

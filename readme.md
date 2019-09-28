@@ -17,6 +17,7 @@ If your project is one of the following kinds of projects, feel free to extend f
 | | [Module](#module-project-options) | [Executable](#executable-project-options) |
 |-| ------ | ---------- |
 | [**Browser**](#browser-project-options) | `browser-module` | `browser-executable` |
+| [**Web Worker**](#web-worker-project-options) | `webworker-module` |
 | [**Node.js**](#nodejs-project-options) | `nodejs-module` | `nodejs-executable` |
 | [**Agnostic**](#agnostic-project-options) | `agnostic-module` |
 
@@ -50,7 +51,14 @@ If your project is one of the following kinds of projects, feel free to extend f
 
 | Option | Default value | Our value |
 | ------ | ------------------ | --------- |
-| `lib` | depends | `["ESNext","DOM","WebWorker"]` |
+| `lib` | depends | `["ESNext","DOM"]` |
+| `module` | depends | `"ESNext"` |
+
+## Web Worker project options
+
+| Option | Default value | Our value |
+| ------ | ------------------ | --------- |
+| `lib` | depends | `["ESNext","WebWorker"]` |
 | `module` | depends | `"ESNext"` |
 
 ## Node.js project options
