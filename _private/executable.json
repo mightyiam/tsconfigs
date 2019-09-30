@@ -1,9 +1,6 @@
 {
   "extends": "./common",
-
   "compilerOptions": {
-    "lib": ["es2018", "dom"],
-
-    "types": []
+    "composite": false
   }
 }
