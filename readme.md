@@ -1,31 +1,51 @@
-# ⚙️ tsconfigs
+# ⚙️ tsconfigs [![Greenkeeper badge](https://badges.greenkeeper.io/mightyiam/tsconfigs.svg)](https://greenkeeper.io/) [![Build Status](https://travis-ci.org/mightyiam/tsconfigs.svg?branch=master)](https://travis-ci.org/mightyiam/tsconfigs) [![Badge: npm version badge for package `tsconfigs`](https://img.shields.io/npm/v/tsconfigs.svg)](https://www.npmjs.com/package/tsconfigs)
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/mightyiam/tsconfigs.svg)](https://greenkeeper.io/)
-[![Build Status](https://travis-ci.org/mightyiam/tsconfigs.svg?branch=master)](https://travis-ci.org/mightyiam/tsconfigs)
-[![Badge: npm version badge for package `tsconfigs`](https://img.shields.io/npm/v/tsconfigs.svg)](https://www.npmjs.com/package/tsconfigs)
+Reusable TypeScript configuration files
 
-## Overview 🦅
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+## Contents
 
-This is a set of reusable TypeScript configuration files to extend from.
+- [Overview](#overview)
+- [Project kinds](#project-kinds)
+- [Example](#example)
+- [Scope](#scope)
+  - [Executable project options](#executable-project-options)
+  - [Module project options](#module-project-options)
+- [Environment](#environment)
+  - [Browser project options](#browser-project-options)
+  - [Web Worker project options](#web-worker-project-options)
+  - [Node.js project options](#nodejs-project-options)
+  - [Agnostic project options](#agnostic-project-options)
+- [Common project options](#common-project-options)
+- [Strictness](#strictness)
+- [Paths](#paths)
+- [Test coverage](#test-coverage)
 
-Say you're starting a new TypeScript project. And you're setting up the `tsconfig.json`. If you're a TypeScript 🧙‍ you quickly fill in some options and you're done. But If you're a meer mortal 🤔 like most of us, you go back to the documentation every time. After several times of that 💡 I decided to write this little project.
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-If your project is one of the following kinds of projects, feel free to extend from this set of TypeScript configurations instead of writing your own from blank. And then override any options you choose to.
+## Overview
 
-## Project kinds 📜
+Say you're starting a new TypeScript project. And you're setting up the `tsconfig.json`. If you're a TypeScript wizard 🧙‍ you quickly fill in some options and you're done. But If you're a meer mortal like most of us, you go back to the documentation every time 🤔. After several times of that I decided to write this little project 💡.
 
-| | [Module](#module-project-options) | [Executable](#executable-project-options) |
+If your project is one of the following kinds of projects, you could extend from one of them, instead of writing your own from blank. And then you could override any options necessary.
+
+## Project kinds
+
+| | [Module ⚙️](#module-project-options) | [Executable 🚄](#executable-project-options) |
 |-| ------ | ---------- |
-| [**Browser**](#browser-project-options) | `browser-module` | `browser-executable` |
-| [**Web Worker**](#web-worker-project-options) | `webworker-module` |
-| [**Node.js**](#nodejs-project-options) | `nodejs-module` | `nodejs-executable` |
-| [**Agnostic**](#agnostic-project-options) | `agnostic-module` |
+| [Browser 🌐](#browser-project-options) | [`browser-module`](browser-module.json) | [`browser-executable`](browser-executable.json) |
+| [Web Worker ⛏️](#web-worker-project-options) | [`webworker-module`](webworker-module.json) |
+| [Node.js ⬡](#nodejs-project-options) | [`nodejs-module`](nodejs-module.json) | [`nodejs-executable`](nodejs-executable.json) |
+| [Agnostic 🏳️](#agnostic-project-options) | [`agnostic-module`](agnostic-module.json) |
 
-## Example `tsconfig.json` 👍
+## Example
+
+Install this package ([`tsconfigs`](https://www.npmjs.com/package/tsconfigs)) and in your `tsconfig.json`:
 
 ```jsonc
 {
-  "extends": "tsconfigs/nodejs-executable",
+  "extends": "tsconfigs/nodejs-executable", // 🎆
   "compilerOptions": {
     "outDir": "lib"
   },
@@ -35,40 +55,44 @@ If your project is one of the following kinds of projects, feel free to extend f
 }
 ```
 
-## Executable project options
+## Scope
+
+### Executable project options
 
 | Option | Default value | Our value | Comment |
 | ------ | ------------------ | --------- | ----------- |
 | `composite` | `true` | `false` | It seems to have no benefit for executables and it necessitates generation of declaration files, which seem useless in executables, as well.
 
-## Module project options
+### Module project options
 
 | Option | Default value | Our value | Comment |
 | ------ | ------------------ | --------- | ----------- |
 | `declaration` | `false` | `true` | Because we'd like to provide the importer with type definitions. |
 
-## Browser project options
+## Environment
+
+### Browser project options
 
 | Option | Default value | Our value |
 | ------ | ------------------ | --------- |
 | `lib` | depends | `["ESNext","DOM"]` |
 | `module` | depends | `"ESNext"` |
 
-## Web Worker project options
+### Web Worker project options
 
 | Option | Default value | Our value |
 | ------ | ------------------ | --------- |
 | `lib` | depends | `["ESNext","WebWorker"]` |
 | `module` | depends | `"ESNext"` |
 
-## Node.js project options
+### Node.js project options
 
 | Option | Default value | Our value | Comment |
 | ------ | ------------------ | --------- | ------- |
 | `lib` | depends | `["ESNext"]`. | You'd most likely also like to install the [`@types/node` package](https://www.npmjs.com/package/@types/node). |
 | `module` | depends | `"CommonJS"` |
 
-## Agnostic project options
+### Agnostic project options
 
 | Option | Default value | Our value | Comment |
 | ------ | ------------------ | --------- | ------- |
@@ -102,4 +126,8 @@ tsconfigs maintains the *opt-out* behavior: we turn `strict` on and yet keep the
 
 ## Paths
 
-We would love to include some [path options like `include` and `outDir`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#details), but, we feel that it would not be reliable, because TypeScript resolves relative paths from the configuration file in which they appear and not from the end-configuration file. See [this issue](https://github.com/mightyiam/tsconfigs/issues/83).
+We would love to include some [path options like `include` and `outDir`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#details) but we feel that it would not be reliable, because TypeScript resolves relative paths from the configuration file in which they appear and not from the end-configuration file. See [this issue](https://github.com/mightyiam/tsconfigs/issues/83).
+
+## Test coverage
+
+There are both [unit](src/unit-test-macro.ts) and [integration](src/integration-test-macro.ts) tests [for each config](src).

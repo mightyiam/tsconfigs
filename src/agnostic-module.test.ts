@@ -34,7 +34,17 @@ test(integrationTest, {
     {
       filename: 'index.d.ts',
       expectedContents: 'export declare const foo = 0;\n'
+    },
+    {
+      filename: 'index.js.map',
+      expectedContents: JSON.stringify({
+        version: 3,
+        file: 'index.js',
+        sourceRoot: '',
+        sources: ['../src/index.ts'],
+        names: [],
+        mappings: ';;AAAa,QAAA,GAAG,GAAG,CAAC,CAAA'
+      })
     }
-
   ]
 })

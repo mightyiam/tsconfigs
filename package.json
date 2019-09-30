@@ -3,6 +3,7 @@
   "version": "3.0.0",
   "description": "Reusable TypeScript configuration files to extend from.",
   "scripts": {
+    "readme-toc": "doctoc readme.md",
     "lint-js": "eslint --ext .js,.ts .",
     "lint-md": "markdownlint --ignore node_modules **/*.md",
     "transpile": "tsc",
@@ -38,6 +39,7 @@
     "@types/node": "^12.7.4",
     "@typescript-eslint/eslint-plugin": "^2.1.0",
     "ava": "^2.3.0",
+    "doctoc": "^1.4.0",
     "eslint": "^6.3.0",
     "eslint-config-standard-with-typescript": "^9.0.0",
     "eslint-plugin-import": "^2.18.2",

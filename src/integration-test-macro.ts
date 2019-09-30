@@ -4,7 +4,7 @@ import tempy from 'tempy'
 import { spawnSync } from 'child_process'
 import { resolve } from 'path'
 import readPkgUp from 'read-pkg-up'
-import { writeFileSync, mkdirSync, readFileSync } from 'fs'
+import { writeFileSync, mkdirSync, readFileSync, readdirSync } from 'fs'
 
 export interface IntegrationTestInput {
   name: ConfigName
@@ -75,7 +75,14 @@ export const integrationTest: Macro<[IntegrationTestInput]> = (
     const resultJs = readFileSync(resolve(tmpDirPath, outDir, filename))
     t.is(resultJs.toString(), expectedContents)
   })
-  // TODO: assert no other files in outDir
+  // eslint-disable-next-line @typescript-eslint/require-array-sort-compare
+  const emittedFilenames = readdirSync(resolve(tmpDirPath, outDir))
+    .sort()
+  // eslint-disable-next-line @typescript-eslint/require-array-sort-compare
+  const expectedEmittedFilenames = expectedOutputFiles
+    .map(({ filename }) => filename)
+    .sort()
+  t.deepEqual(emittedFilenames, expectedEmittedFilenames)
 }
 
 integrationTest.title = () => 'integration'
