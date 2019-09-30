@@ -1,12 +1,10 @@
-// This is for this project, specifically. So don’t use it, OK?
 {
-  "extends": "./node",
+  "extends": "./nodejs-executable",
   "compilerOptions": {
     "outDir": "./lib",
-    "rootDir": "./src",
-    "declaration": false
+    "rootDir": "./src"
   },
   "include": [
-    "./src"
+    "./src/**/*"
   ]
 }

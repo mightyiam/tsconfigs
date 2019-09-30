@@ -1,0 +1,7 @@
+{
+  "extends": "./_private/module",
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "module": "ESNext"
+  }
+}
