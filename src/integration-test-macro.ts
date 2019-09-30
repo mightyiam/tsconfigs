@@ -29,9 +29,9 @@ export const integrationTest: Macro<[IntegrationTestInput]> = (
   const tmpDirPath = tempy.directory()
   const pkgJson = readPkgUp.sync()
   if (pkgJson === undefined) throw new Error()
-  if (pkgJson.package === undefined) throw new Error()
-  if (pkgJson.package.devDependencies === undefined) throw new Error()
-  const typescriptVersion = pkgJson.package.devDependencies.typescript
+  if (pkgJson.packageJson === undefined) throw new Error()
+  if (pkgJson.packageJson.devDependencies === undefined) throw new Error()
+  const typescriptVersion = pkgJson.packageJson.devDependencies.typescript
   const npmInstallCmd = spawnSync(
     'npm',
     [
