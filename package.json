@@ -63,6 +63,9 @@
     "webworker-module.json",
     "nodejs-executable.json",
     "nodejs-module.json",
-    "agnostic-module.json"
+    "agnostic-module.json",
+    "_private/common.json",
+    "_private/executable.json",
+    "_private/module.json"
   ]
 }
