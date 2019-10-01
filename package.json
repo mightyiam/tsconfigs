@@ -1,6 +1,6 @@
 {
   "name": "tsconfigs",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Reusable TypeScript configuration files to extend from.",
   "scripts": {
     "release": "standard-version",
