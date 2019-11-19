@@ -36,7 +36,7 @@
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
     "@commitlint/travis-cli": "8.2.0",
-    "@types/node": "12.12.8",
+    "@types/node": "12.12.9",
     "@typescript-eslint/eslint-plugin": "2.8.0",
     "ava": "2.4.0",
     "doctoc": "1.4.0",
