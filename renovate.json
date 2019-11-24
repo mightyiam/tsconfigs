@@ -1,5 +1,12 @@
 {
   "extends": [
-    "config:base"
-  ]
+    "config:js-lib",
+    ":preserveSemverRanges"
+  ],
+  "travis": {
+    "enabled": true
+  },
+  "node": {
+    "supportPolicy": "all"
+  }
 }
