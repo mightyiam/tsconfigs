@@ -1,6 +1,9 @@
 language: node_js
 node_js:
-  - node
+  - "8"
+  - "10"
+  - "12"
+  - "13"
 before_install:
   - npm install -g npm
   - npm install -g greenkeeper-lockfile@1

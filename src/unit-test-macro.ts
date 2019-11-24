@@ -3,6 +3,7 @@ import { resolve, dirname } from 'path'
 import { readFileSync } from 'fs'
 import { libMap, CompilerOptions, ModuleKind, ModuleResolutionKind, NewLineKind, ScriptTarget, readConfigFile, parseJsonConfigFileContent, sys } from 'typescript'
 import { ConfigName } from './shared'
+import 'object.fromentries/auto'
 declare module 'typescript' {
   export const libMap: Map<string>
 }
