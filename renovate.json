@@ -1,12 +1,12 @@
 {
   "extends": [
-    "config:js-lib",
-    ":preserveSemverRanges"
+    "config:base"
   ],
   "travis": {
     "enabled": true
   },
   "node": {
     "supportPolicy": "all"
-  }
+  },
+  "rangeStrategy": "replace"
 }
