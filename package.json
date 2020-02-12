@@ -52,7 +52,7 @@
     "object.fromentries": "^2.0.2",
     "read-pkg-up": "^7.0.1",
     "standard-version": "^7.1.0",
-    "tempy": "^0.3.0",
+    "tempy": "^0.4.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
   },
