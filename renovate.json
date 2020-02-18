@@ -1,12 +1,5 @@
 {
   "extends": [
-    "config:base"
-  ],
-  "travis": {
-    "enabled": true
-  },
-  "node": {
-    "supportPolicy": "all"
-  },
-  "rangeStrategy": "replace"
+    "github>mightyiam/renovate-config:js-lib"
+  ]
 }
