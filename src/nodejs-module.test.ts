@@ -30,6 +30,7 @@ test(integrationTest, {
       expectedContents: [
         '"use strict";',
         'Object.defineProperty(exports, "__esModule", { value: true });',
+        'exports.foo = void 0;',
         'process.exit();',
         'exports.foo = 0;',
         '//# sourceMappingURL=index.js.map'
@@ -47,7 +48,7 @@ test(integrationTest, {
         sourceRoot: '',
         sources: ['../src/index.ts'],
         names: [],
-        mappings: ';;AAAA,OAAO,CAAC,IAAI,EAAE,CAAA;AACD,QAAA,GAAG,GAAG,CAAC,CAAA'
+        mappings: ';;;AAAA,OAAO,CAAC,IAAI,EAAE,CAAA;AACD,QAAA,GAAG,GAAG,CAAC,CAAA'
       })
     }
   ]
