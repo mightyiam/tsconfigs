@@ -53,7 +53,7 @@
     "read-pkg-up": "7.0.1",
     "standard-version": "8.0.0",
     "tempy": "0.5.0",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   },
   "files": [
     "browser-executable.json",
