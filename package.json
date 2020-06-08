@@ -1,6 +1,6 @@
 {
   "name": "tsconfigs",
-  "version": "4.0.2",
+  "version": "5.0.0",
   "description": "Reusable TypeScript configuration files to extend from.",
   "scripts": {
     "release": "standard-version --skip.tag",
