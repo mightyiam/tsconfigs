@@ -3,7 +3,7 @@
   "version": "4.0.2",
   "description": "Reusable TypeScript configuration files to extend from.",
   "scripts": {
-    "release": "standard-version",
+    "release": "standard-version --skip.tag",
     "readme-toc": "doctoc readme.md",
     "lint": "eslint .",
     "transpile": "tsc",
