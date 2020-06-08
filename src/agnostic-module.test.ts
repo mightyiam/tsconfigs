@@ -8,7 +8,8 @@ test(unitTest, 'agnostic-module', {
     ...common,
     ...importable,
     lib: ['ESNext'],
-    module: 'CommonJS'
+    module: 'CommonJS',
+    types: []
   }
 })
 

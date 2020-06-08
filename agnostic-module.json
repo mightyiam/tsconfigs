@@ -2,6 +2,7 @@
   "extends": "./_private/module",
   "compilerOptions": {
     "lib": ["ESNext"],
-    "module": "CommonJS"
+    "module": "CommonJS",
+    "types": []
   }
 }

@@ -8,7 +8,8 @@ test(unitTest, 'browser-module', {
     ...common,
     ...importable,
     lib: ['ESNext', 'DOM'],
-    module: 'ESNext'
+    module: 'ESNext',
+    types: []
   }
 })
 

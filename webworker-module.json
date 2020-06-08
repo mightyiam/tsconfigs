@@ -2,6 +2,7 @@
   "extends": "./_private/module",
   "compilerOptions": {
     "lib": ["ESNext", "WebWorker"],
-    "module": "ESNext"
+    "module": "ESNext",
+    "types": []
   }
 }
