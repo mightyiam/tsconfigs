@@ -8,7 +8,8 @@ test(unitTest, 'webworker-module', {
     ...common,
     ...importable,
     lib: ['ESNext', 'WebWorker'],
-    module: 'ESNext'
+    module: 'ESNext',
+    types: []
   }
 })
 

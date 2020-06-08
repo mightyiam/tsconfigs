@@ -8,7 +8,10 @@ test(unitTest, 'nodejs-module', {
     ...common,
     ...importable,
     lib: ['ESNext'],
-    module: 'CommonJS'
+    module: 'CommonJS',
+    types: [
+      'node'
+    ]
   }
 })
 

@@ -9,7 +9,10 @@ test(unitTest, 'nodejs-executable',
       ...common,
       ...executable,
       lib: ['ESNext'],
-      module: 'CommonJS'
+      module: 'CommonJS',
+      types: [
+        'node'
+      ]
     }
   }
 )
