@@ -1,5 +1,5 @@
 module.exports = {
-  extends: [require.resolve('crazy-commits/commitlint')],
+  extends: ['@commitlint/config-conventional'],
   rules: {
     'scope-enum': [2, 'always', [
       'commitlint',
