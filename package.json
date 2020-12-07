@@ -38,7 +38,7 @@
     "@commitlint/travis-cli": "11.0.0",
     "@types/node": "14.14.10",
     "@typescript-eslint/eslint-plugin": "4.9.0",
-    "ava": "3.13.0",
+    "ava": "3.14.0",
     "doctoc": "1.4.0",
     "eslint": "7.15.0",
     "eslint-config-standard-with-typescript": "19.0.1",
